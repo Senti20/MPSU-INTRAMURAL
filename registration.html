@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="./">
+  <title>Registration - MPSU Intramurals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .header-section {
+      background: url('images/vision mission.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 40px 0 20px 0;
+      text-align: center;
+      height: 200px;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #4caf50, #2e7d32, #1b5e20);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .navbar-brand, .navbar-nav .nav-link { 
+      color: white !important; 
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ffeb3b !important;
+    }
+    .form-container {
+      background-color: #ffffff;
+      width: 90%;
+      max-width: 600px;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 25px rgba(0, 100, 0, 0.2);
+      margin: 40px auto;
+      border-left: 4px solid #4caf50;
+    }
+    .form-container h1 {
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #4caf50, #2e7d32);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+    }
+    label {
+      font-weight: bold;
+      color: #2e7d32;
+    }
+    input[type="text"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 12px;
+      border: 2px solid #4caf50;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #ffffff;
+      transition: 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+    input[type="checkbox"] {
+      accent-color: #4caf50;
+      transform: scale(1.2);
+    }
+    .button-group {
+      text-align: center;
+      margin-top: 20px;
+    }
+    input[type="submit"],
+    input[type="reset"] {
+      background: linear-gradient(135deg, #4caf50, #2e7d32);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 25px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 5px;
+      transition: 0.3s ease;
+    }
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background: linear-gradient(135deg, #66bb6a, #388e3c);
+      transform: translateY(-2px);
+    }
+    .error-message {
+      color: #d32f2f;
+      font-size: 14px;
+      margin-top: -8px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    footer {
+      background: linear-gradient(135deg, #4caf50, #2e7d32, #1b5e20);
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header-section">
+    <div class="container">
+      <h1 class="fw-bold display-5">Registration</h1>
+      <p class="lead">Join the MPSU Intramurals today!</p>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark px-3">
+    <a class="navbar-brand" href="./index.html">MPSU Intramurals</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link active" href="./registration.html">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="form-container">
+      <form name="RegForm" onsubmit="return validateForm()" onreset="resetErrors()">
+        <h1>REGISTRATION FORM</h1>
+
+        <p>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="Name" placeholder="Enter your full name" />
+          <span id="name-error" class="error-message"></span>
+        </p>
+
+        <p>
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="Address" placeholder="Enter your address" />
+          <span id="address-error" class="error-message"></span>
+        </p>
+
+        <p>
+          <label for="email">E-mail Address:</label>
+          <input type="text" id="email" name="EMail" placeholder="Enter your email" />
+          <span id="email-error" class="error-message"></span>
+        </p>
+
+        <p>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="Username" placeholder="Choose a username" />
+          <span id="username-error" class="error-message"></span>
+        </p>
+
+        <p>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="Password" />
+          <span id="password-error" class="error-message"></span>
+        </p>
+
+        <p>
+          <label for="subject">Select Your Course:</label>
+          <select id="subject" name="Subject">
+            <option value="">Select Course</option>
+            <option value="BSIT">BSIT</option>
+            <option value="BSOA">BSOA</option>
+            <option value="BSCRIM">BSCRIM</option>
+            <option value="BSN">BSN</option>
+            <option value="BSTM">BSTM</option>
+            <option value="BSEDUC">BSEDUC</option>
+          </select>
+          <span id="subject-error" class="error-message"></span>
+        </p>
+
+        <p>
+          <label for="college">College Name:</label>
+          <select id="college" name="College">
+            <option value="">Select School</option>
+            <option value="SABT">SABT</option>
+            <option value="SJS">SJS</option>
+            <option value="SAED">SAED</option>
+            <option value="SAHM">SAHM</option>
+          </select>
+        </p>
+
+        <p>
+          <input type="checkbox" id="agree" name="Agree" />
+          <label for="agree">I agree to the above information</label>
+          <span id="agree-error" class="error-message"></span>
+        </p>
+
+        <div class="button-group">
+          <input type="submit" value="Submit" name="Submit" />
+          <input type="reset" value="Reset" name="Reset" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 MPSU Intramurals. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const addr = document.getElementById("address").value;
+      const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const sub = document.getElementById("subject").value;
+      const agree = document.getElementById("agree").checked;
+
+      const nameErr = document.getElementById("name-error");
+      const addrErr = document.getElementById("address-error");
+      const emailErr = document.getElementById("email-error");
+      const usernameErr = document.getElementById("username-error");
+      const passErr = document.getElementById("password-error");
+      const subErr = document.getElementById("subject-error");
+      const agreeErr = document.getElementById("agree-error");
+
+      nameErr.textContent = "";
+      addrErr.textContent = "";
+      emailErr.textContent = "";
+      usernameErr.textContent = "";
+      passErr.textContent = "";
+      subErr.textContent = "";
+      agreeErr.textContent = "";
+
+      let isValid = true;
+
+      if (name === "" || /\d/.test(name)) {
+        nameErr.textContent = "Please enter your name properly.";
+        isValid = false;
+      }
+      if (addr === "") {
+        addrErr.textContent = "Please enter your address.";
+        isValid = false;
+      }
+      if (email === "" || !email.includes("@") || !email.includes(".")) {
+        emailErr.textContent = "Please enter a valid email address.";
+        isValid = false;
+      }
+      if (username === "" || username.length < 3) {
+        usernameErr.textContent = "Username must be at least 3 characters.";
+        isValid = false;
+      }
+      if (pass === "" || pass.length < 8) {
+        passErr.textContent = "Password must be at least 8 characters long.";
+        isValid = false;
+      }
+      if (sub === "") {
+        subErr.textContent = "Please select your course.";
+        isValid = false;
+      }
+      if (!agree) {
+        agreeErr.textContent = "Please agree to the above information.";
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert("Registration successful! Redirecting to homepage...");
+       
+        setTimeout(() => {
+          window.location.href = "./index.html";
+        }, 2000);
+        return false; 
+      }
+      return false; 
+    }
+
+    function resetErrors() {
+      document.querySelectorAll(".error-message").forEach(e => e.textContent = "");
+    }
+  </script>
+</body>
+</html>
